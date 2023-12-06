@@ -74,6 +74,8 @@
 		<p><input type="submit"></p>
 	</form>
 	
+	<%--JSP action Tag : JSP 자체 내부 문법--%>
+	<%--프론트엔드 개발자들이 자바를 모르기 때문에 만들어짐 --%>
 	<jsp:useBean id="ob" class="food.FoodDTO" /><%--빈 객체를 생성한다 --%>
 	<jsp:setProperty property="*" name="ob" /><%--input name과 필드이름을 맞추면 자동으로 대입 --%>
 	
