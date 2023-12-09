@@ -4,14 +4,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>index.jsp</title>
+<title>delete.jsp</title>
 </head>
 <body>
 
-<h1>★ 우리나라 아이돌 가수 ★</h1>
+${dao.delete(param.idx) }
 
-<a href="list.jsp"><button>(❁´◡`❁)</button></a>
-
+<%
+	response.sendRedirect("list.jsp");
+%>
 
 </body>
 </html>
