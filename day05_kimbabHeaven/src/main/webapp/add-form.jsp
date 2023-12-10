@@ -5,10 +5,29 @@
 <head>
 <meta charset="UTF-8">
 <title>add-form.jsp</title>
+<style>
+	div.add {
+		width: 900px;
+		margin: auto;
+	}
+	h1 {
+		display: flex;
+ 		justify-content: center;
+	}
+	p {
+		display: flex;
+ 		justify-content: center;
+	}
+	
+</style>
+
 </head>
 <body>
 
+<div class="add">
+
 <h1>메뉴 추가</h1>
+
 
 <form action="add-action.jsp">
 	<p>
@@ -23,8 +42,10 @@
 	</p>
 	<p><input type="text" name="menuName" placeholder="메뉴이름"></p>
 	<p><input type="text" name="menuPrice" placeholder="메뉴가격"></p>
+	<p><input type="text" name="cal" placeholder="칼로리"></p>
 	<p><input type="submit"></p>
 </form>
+</div>
 
 </body>
 </html>

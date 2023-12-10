@@ -1,4 +1,4 @@
-<%@page import="kimbab.KimbabDTO"%>
+<%@page import="Coffee.CoffeeDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,13 +9,13 @@
 </head>
 <body>
 
-<jsp:useBean id="dto" class="kimbab.KimbabDTO" scope="page"/>
+<jsp:useBean id="dto" class="Coffee.CoffeeDTO"/>
 <jsp:setProperty property="*" name="dto"/>
 
 ${dao. insert(dto) }
 
 <%
-	int lastIdx = KimbabDTO.getSeq();
+	int lastIdx = CoffeeDTO.getSeq();
 	response.sendRedirect("view.jsp?idx=" + lastIdx);
 %>
 
