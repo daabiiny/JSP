@@ -15,7 +15,7 @@
 <c:if test="${row == 0 }">
 	<script>
 		alert('추가 실패')
-		location.href = '${cpath}'
+		history.back()	// 브라우저의 "뒤로 가기" 버튼
 	</script>
 </c:if>
 
