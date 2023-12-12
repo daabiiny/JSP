@@ -4,7 +4,9 @@ package mcdonald;
 // 작성이 끝나면 싱글톤 적용
 import java.sql.*;
 import java.util.*;
+
 import oracle.jdbc.driver.OracleDriver;
+
 
 public class McdonaldDAO {
 	
