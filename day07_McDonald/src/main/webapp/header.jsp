@@ -48,6 +48,18 @@
 		padding: 10px;
 		text-align: center;
 	}
+	div.detail {
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+		align-content: center;
+		text-align: center;
+	}
+	div.sb {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
 
 </style>
 

@@ -10,6 +10,10 @@
       <c:set var="list" value="${dao.selectListByCategory(param.category) }" />
    </c:if>
    
+   <div>
+   		<a href="${cpath }/add.jsp"><button>추가</button></a>
+   </div>
+   
    <div class="box">
       <c:forEach var="dto" items="${list }">
       <div class="item">
