@@ -168,8 +168,7 @@ public class YoutubeDAO {
 	return row;
 	}
 	
-	// 마지막으로 사용한 시퀀스 번호를 불러오는 함수
-	// select max(idx) from youtube;
+	 
 	public int selectCurrSeq() {
 		int idx = 0;
 		String sql = "select max(idx) from youtube";
