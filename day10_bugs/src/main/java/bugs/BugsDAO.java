@@ -10,7 +10,9 @@ import java.util.List;
 
 public class BugsDAO {
 	
-	// 싱글톤
+	// 싱글톤 : 페이지마다 같은 기능을 하는 서로 다른객체가 생기지 않도록 처리
+	
+	// 생성자
 	// 멤버 필드
 	private String url="jdbc:oracle:thin:@192.168.1.100:1521:xe";
 	private String user = "c##itbank";
@@ -111,6 +113,39 @@ public class BugsDAO {
 	// int insert(BugsDTO dto) 전달받은 dto를 추가합니다!
 	// insert into bugs (...) values (?, ...)
 	
+	// 함수가 호출되고 connection이 생성됨
+	public int insert(BugsDTO dto) {
+		int row = 0;
+		String sql = "insert into bugs ("
+				+ "		artist_name,"
+				+ "		album_name,"
+				+ "		name,"
+				+ "		genre,"
+				+ "		playTime,"
+				+ "		isTitle,"
+				+ "		lyrics"
+				+ " ) values ("
+				+ "		?, ?, ?, ?, ?, ?, ?"
+				+ ")";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getArtist_name());
+			pstmt.setString(2, dto.getAlbum_name());
+			pstmt.setString(3, dto.getName());
+			pstmt.setString(4, dto.getGenre());
+			pstmt.setInt(5, dto.getPlayTime());
+			pstmt.setInt(6, dto.getIsTitle());
+			pstmt.setString(7, dto.getLyrics());
+			row = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return row;
+	}
+	
 	// int update(BugsDTO dto) 전달받은 dto를 수정합니다!
 	// update bugs set artist_name=?, ... where id = ?
 	public int update(BugsDTO dto) {
@@ -149,6 +184,21 @@ public class BugsDAO {
 	
 	// int delete(int id)
 	// delete from bugs where id = ?
+	public int delete(int id) {
+		int row = 0;
+		String sql = "delete from bugs where id = ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			row = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return row;
+	}
 	
 	
 }
