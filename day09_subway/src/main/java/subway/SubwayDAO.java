@@ -2,7 +2,6 @@ package subway;
 
 import java.sql.*;
 import java.util.*;
-import Oracle.jdbc.driver.OracleDriver;
 
 public class SubwayDAO {
 
@@ -16,7 +15,7 @@ public class SubwayDAO {
 	
 	// getConnection
 	private Connection getConnection() throws Exception {
-		Class.forName(OracleDriver.class.getName());
+		Class.forName("oracle.jdbc.driver.OracleDriver");
 		return DriverManager.getConnection(url, user, password);
 	}
 	
