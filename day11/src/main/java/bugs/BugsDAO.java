@@ -98,5 +98,47 @@ public class BugsDAO {
 				System.out.println("불러온 목록의 개수 : " + list.size());
 				return list;
 		}
+		// 조회
+		public BugsDTO selectOne(int id) {
+			BugsDTO dto = null;
+			String sql = "select * from bugs where id = ?";
+			try {
+				conn = ds.getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, id);
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					dto = mapping(rs);	// 하나 가져와서
+					return dto;			// 곧바로 반환한다 (이거 없어도 되지만 의미를 강조하고 싶을때 사용)
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				// 자바의 함수는 위에서 return을 해서 결과값을 반환해도 finally는 실행됨
+				close();
+			}
+			return dto;
+		}
+		// 삭제
+		// 외부에서 호출해야 하니까 public
+		// delete쿼리는 영향받은 줄 수를 반환
+		public int delete(int id) {	// id를 정수로 전달받는다
+			int row = 0;			// 반환형 변수 선언
+			String sql = "delete from bugs where id = ?";
+			try {
+				conn = ds.getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, id);
+				// sql이 select이면 executeQuery() --- ResultSet
+				// sql이 insert/update/delete 이면 executeUpdate() --- int
+				row = pstmt.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+			return row;				// 반환형 변수 반환
+			
+		}
 	
 }
