@@ -30,6 +30,20 @@
 	nav > ul > li {
 		flex: 1;
 	}
+	table {
+		border: 2px solid black;
+		border-collapse: collapse;
+		width: 500px;
+	}
+	tr, td {
+		border-bottom: 1px solid grey;
+	}
+	td {
+		text-align: center;
+	}
+	thead {
+		background-color: #dadada;
+	}
 
 
 </style>

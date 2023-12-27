@@ -124,14 +124,42 @@ public class MemberDAO {
 	// (delete member where userid = ?)
 	
 	// 정보수정
-	// "update member"
-	//	+ " set"
-	//	+ "		userid = ?,"
-	//	+ "		userpw = ?,"
-	//	+ "		username = ?,"
-	//	+ "		gender = ?,"
-	//	+ "		email = ?,"
-	//	+ " where"
-	//	+ "		userid = ?";
+//	 "update member"
+//		+ " set"
+//		+ "		userid = ?,"
+//		+ "		userpw = ?,"
+//		+ "		username = ?,"
+//		+ "		gender = ?,"
+//		+ "		email = ?,"
+//		+ " where"
+//		+ "		userid = ?";
+	public int update(MemberDTO dto) {
+		int row = 0;
+		String sql = "update member"
+				+ " set"
+				+ "		userid = ?,"
+				+ "		userpw = ?,"
+				+ "		username = ?,"
+				+ "		gender = ?,"
+				+ "		email = ?,"
+				+ " where"
+				+ "		userid = ?";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getUserid());
+			pstmt.setString(2, dto.getUserpw());
+			pstmt.setString(3, dto.getUsername());
+			pstmt.setString(4, dto.getGender());
+			pstmt.setString(5, dto.getEmail());
+			pstmt.setString(6, dto.getUserid());
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return row;
+	}
+	
 	
 }
