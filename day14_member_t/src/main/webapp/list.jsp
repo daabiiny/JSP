@@ -24,7 +24,7 @@
 				<td>${dto.gender }</td>
 				<td>${dto.email }</td>
 				<td>
-					<a href=""><button>수정</button></a>
+					<a href="${cpath }/modify.jsp?userid=${dto.userid}"><button>수정</button></a>
 					<a class="deleteLink" href="${cpath }/delete.jsp?userid=${dto.userid}">
 						<button>삭제</button>
 					</a>

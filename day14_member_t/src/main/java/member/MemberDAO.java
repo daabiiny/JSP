@@ -164,6 +164,53 @@ public class MemberDAO {
 			close();
 		}
 		return login;
-				
 	}
+	// 단일 객체 조회하기
+	public MemberDTO selectOne(String userid) {
+		MemberDTO dto = null;
+		String sql = "select * from member where userid = ?";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userid);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				dto = mapping(rs);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return dto;
+	}
+	// 객체 정보 수정하기
+	public int update(MemberDTO dto) {
+		int row = 0;
+		String sql = "update member"
+				+ " set"
+				+ "		userpw = ?,"
+				+ "		username = ?,"
+				+ "		gender = ?,"
+				+ "		email = ?"
+				+ " where"
+				+ "		userid = ?";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getUserpw());
+			pstmt.setString(2, dto.getUsername());
+			pstmt.setString(3, dto.getGender());
+			pstmt.setString(4, dto.getEmail());
+			pstmt.setString(5, dto.getUserid());
+			row = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return row;
+		
+	}
+	
 }
