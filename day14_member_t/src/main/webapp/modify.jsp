@@ -6,10 +6,10 @@
 	<h3>정보수정 (modify.jsp)</h3>
 	<c:set var="dto" value="${dao.selectOne(param.userid) }" />
 	
-	<!-- modify-action이 없으면 -->
-	<!-- <c:if test="${pageContext.request.method = 'SET'}"> 
+	<%-- modify-action이 없으면 --%>
+	<%-- <c:if test="${pageContext.request.method = 'SET'}"> 
 			<form> ... </form>
-		</c:if> -->
+		--%>
 	
 	<form method="POST" action="modify-action.jsp">
 		<p><input type="text" name="userid" value="${dto.userid }" placeholder="ID" required readonly></p>
