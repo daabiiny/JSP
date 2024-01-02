@@ -86,13 +86,14 @@ public class ReplyDAO {
 		return row;
 	}
 	// 댓글 지우기
-	public int delete(int idx) {
+	public int delete(ReplyDTO dto) {
 		int row = 0;
-		String sql = "delete from reply where idx = ?";
+		String sql = "delete from reply where idx = ? and writer = ?";
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, idx);
+			pstmt.setString(2, dto.getWriter());
 			row = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

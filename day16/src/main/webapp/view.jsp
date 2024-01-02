@@ -48,9 +48,9 @@
 			</div>
 			<div>
 				<fmt:formatDate value="${reply.writeDate }" pattern="yyyy-MM-dd a hh:mm"/>
-				<div>
+				<c:if test="${reply.writer == login.userid }">
 					<a href="${cpath }/reply-delete.jsp?idx=${reply.idx}&board_idx=${dto.idx}"><button>삭제</button></a>
-				</div>
+				</c:if>
 			</div>
 		</div>
 		<div><pre>${reply.content }</pre></div>
