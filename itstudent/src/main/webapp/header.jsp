@@ -42,6 +42,19 @@
 		width: 500px;
 		margin: 20px auto;
 	}
+	table {
+		border: 2px solid black;
+		border-collapse: collapse;
+		margin: 20px auto;
+		width: 600px;
+	}
+	th, td {
+		padding: 5px;
+		text-align: center;
+	}
+	tr {
+		border-bottom: 1px solid grey;
+	}
 
 </style>
 
@@ -50,13 +63,20 @@
 
 <header>
 	<h1><a href="${cpath }">IT STUDENT</a></h1>
-	
+	<div style="text-align: right; padding-right: 20px; height: 30px;">
+		${login.userid }이 로그인하셨습니다.
+	</div>
 	<nav>
 		<ul>
 			<li><a href="${cpath }/list.jsp">목록</a></li>
 			<li><a href="${cpath }/join.jsp">추가(회원가입)</a></li>
-			<li><a href="${cpath }/login.jsp">로그인</a></li>
-			<li><a href="${cpath }/logout.jsp">로그아웃</a></li>
+			
+			<c:if test="${not empty login }">
+				<li><a href="${cpath }/logout.jsp">로그아웃</a></li>
+			</c:if>
+			<c:if test="${empty login }">
+				<li><a href="${cpath }/login.jsp">로그인</a></li>
+			</c:if>
 		</ul>
 	</nav>
 	

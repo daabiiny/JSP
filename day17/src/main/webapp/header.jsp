@@ -16,7 +16,13 @@
 <meta charset="UTF-8">
 <title>day17</title>
 <style>
-	h2 {
+	h2, h3, h4 {
+		text-align: center;
+	}
+	h5 {
+		text-align: right;
+	}
+	fieldset {
 		text-align: center;
 	}
 	form {

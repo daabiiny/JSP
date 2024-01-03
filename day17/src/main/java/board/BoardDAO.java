@@ -70,6 +70,25 @@ public class BoardDAO {
 		return list;
 	}
 	// 게시글읽기 (selectOne)
+	// select * from board where idx = ?
+	public BoardDTO selectOne(int idx) {
+		BoardDTO dto = null;
+		String sql = "select * from board where idx = ?";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				dto = mapping(rs);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return dto;
+	}
 	// 게시글작성 (insert)
 	// insert into board (title, writer, content) values (?, ?, ?)
 	public int insert(BoardDTO dto) {

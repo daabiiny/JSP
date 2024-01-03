@@ -92,7 +92,7 @@ public class ReplyDAO {
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, idx);
+			pstmt.setInt(1, dto.getIdx());
 			pstmt.setString(2, dto.getWriter());
 			row = pstmt.executeUpdate();
 		} catch (Exception e) {

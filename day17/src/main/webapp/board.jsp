@@ -15,7 +15,9 @@
 	<c:forEach var="dto" items="${list }">
 		<tr>
 			<td>${dto.idx }</td>
-			<td width="600">${dto.title }</td>
+			<td width="600">
+				<a href="${cpath }/view.jsp?idx=${dto.idx}">${dto.title }</a>
+			</td>
 			<td>${dto.writer }</td>
 			<td>${dto.writeDate }</td>
 		</tr>
