@@ -46,6 +46,10 @@
 		align-items: center;
 		margin-left: 20px;
 	}
+	div.modify {
+		display: flex;
+		justify-content: space-between;
+	}
 
 </style>
 

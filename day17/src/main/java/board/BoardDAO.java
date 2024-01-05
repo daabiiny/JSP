@@ -110,6 +110,28 @@ public class BoardDAO {
 	}
 	
 	// 게시글수정 (update)
+	public int update(BoardDTO dto) {
+		int row = 0;
+		String sql = "update board"
+					+ " set"
+					+ "		title = ?,"
+					+ "		content = ?"	
+					+ " where idx = ?";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getTitle());
+			pstmt.setString(2, dto.getContent());
+			pstmt.setInt(3, dto.getIdx());
+			row = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return row;
+	}
+	
 	// 게시글삭제 (delete)
 	
 }
