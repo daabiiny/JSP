@@ -8,7 +8,8 @@
 	<c:set var="dto" value="${boardDAO.selectOne(param.idx) }"/>
 	<div></div>
 	<div>
-		<a href="${cpath }/modify-form.jsp?idx=${dto.idx}"><button>글수정</button></a>
+		<a href="${cpath }/modify-form.jsp?idx=${dto.idx}"><button>수정</button></a>
+		<a href="${cpath }/delete.jsp?idx=${dto.idx}"><button>삭제</button></a>
 	</div>
 </div>
 

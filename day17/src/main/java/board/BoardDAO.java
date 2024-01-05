@@ -133,5 +133,18 @@ public class BoardDAO {
 	}
 	
 	// 게시글삭제 (delete)
-	
+	public int delete(int idx) {
+		int row = 0;
+		String sql = "delete from board where idx = ?";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return row;
+	}
 }
