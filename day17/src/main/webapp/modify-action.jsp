@@ -8,7 +8,7 @@
 <c:set var="row" value="${boardDAO.update(dto) }"/>
 
 <c:if test="${row != 0 }">
-	<c:redirect url="/view.jsp"/>
+	<c:redirect url="/view.jsp?idx=${param.idx }"/>
 </c:if>
 
 <script>

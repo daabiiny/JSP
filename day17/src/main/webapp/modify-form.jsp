@@ -14,7 +14,8 @@
 		<h2>게시물 수정</h2>
 		<c:set var="dto" value="${boardDAO.selectOne(param.idx) }"/>
 		<form method="POST" action="modify-action.jsp">
-			<p>
+			<input type="hidden" name="idx" value="${dto.idx }">
+	`		<p>
 				<input type="text" name="title" value="${dto.title }" placeholder="제목" required>
 			</p>
 			<p>

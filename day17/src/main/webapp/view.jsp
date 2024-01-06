@@ -20,7 +20,30 @@
 	<pre>${dto.content }</pre>
 </fieldset>
 
+<form method="POST" action="reply-write.jsp">
+	<h2>댓글 작성</h2>
+	<c:if test="${empty login }">
+		<c:set var="replyComment">로그인 후에 댓글 작성 가능합니다</c:set>
+	</c:if>
+	<c:if test="${not empty login }">
+		<c:set var="replyComment">바르고 고운 말을 사용합시다</c:set>
+	</c:if>
+	<div class="replyWrite">
+		<textarea name="content" rows="4" cols="150"
+		 placeholder="${replyComment}" ${empty login ? 'disabled' : '' }></textarea>
+		 <input type="submit" value="댓글쓰기"
+		 ${empty login ? 'disabled' : ''} >
+		 <input type="hidden" name="board_idx" value="${param.idx }">
+		 <input type="hidden" name="writer" value="${login.userid }">
+	</div>
+</form>
 
-
+<div>
+	<c:forEach var="reply" items="${replyDAO.selectList(param.idx) }">
+		
+	
+	
+	</c:forEach>
+</div>
 </body>
 </html>
