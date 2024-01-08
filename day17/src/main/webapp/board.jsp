@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ include file="header.jsp" %>
 
-
 <div class="writeaction">
 	<div><h2>게 시 판</h2></div>
 	<a href="${cpath }/write.jsp"><button>글쓰기</button></a>

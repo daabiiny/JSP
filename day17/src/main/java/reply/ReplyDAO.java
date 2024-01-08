@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -48,6 +50,24 @@ public class ReplyDAO {
 		return dto;
 	}
 	// 댓글목록 (selectList)
+	public List<ReplyDTO> selectList(int board_idx) {
+		ArrayList<ReplyDTO> list = new ArrayList<>();
+		String sql = "select * from reply where board_idx = ? order by idx";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, board_idx);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(mapping(rs));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return list;
+	}
 	// 댓글작성 (insert)
 	// 댓글삭제 (delete)
 }

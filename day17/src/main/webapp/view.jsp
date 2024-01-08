@@ -14,7 +14,6 @@
 </div>
 
 <fieldset>
-	<c:set var="dto" value="${boardDAO.selectOne(param.idx) }"/>
 	<h4>${dto.title }</h4>
 	<h5>작성자 : ${dto.writer } / 작성일 : ${dto.writeDate }</h5>
 	<pre>${dto.content }</pre>
@@ -39,11 +38,24 @@
 </form>
 
 <div>
-	<c:forEach var="reply" items="${replyDAO.selectList(param.idx) }">
-		
-	
-	
+	<c:set var="list" value="${replyDAO.selectList(param.idx) }"/>
+	<c:forEach var="reply" items="${list }">
+		<div class="replyItem">
+			<div class="replyItem2">
+				<div>${reply.writer }</div>
+				<div>
+					<fmt:formatDate value="${reply.writeDate }" pattern="yyyy-MM-dd a hh:mm"/>
+					<c:if test="${reply.writer == login.userid }">
+						<a href="${cpath }/reply-delete.jsp?idx=${reply.idx}&board_idx=${dto.idx}"></a>
+					</c:if>
+				</div>
+			</div>
+			<div><pre>${reply.content }</pre></div>		
+		</div>
 	</c:forEach>
 </div>
+
+<a href="${cpath }/board.jsp"><button>목록으로</button></a>
+
 </body>
 </html>
