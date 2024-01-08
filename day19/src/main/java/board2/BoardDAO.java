@@ -103,6 +103,17 @@ public class BoardDAO {
 	}
 	private String maskIPaddr(String src) {
 		String dst = "";	// 아이피 주소 원본(DB에서 가져온 값)
+		int dotCount = 0;
+		for(int i = 0; i < src.length(); i++) {
+			char ch = src.charAt(i);
+			if(ch == '.') dotCount += 1;
+			if(dotCount >= 2 && '0' <= ch && ch <= '9') {
+				dst += '*';
+			}
+			else {
+				dst += ch;
+			}
+		}
 		return dst;			// 뒷자리 숫자를 자릿수 맞춰서 *로 바꾼 문자열
 	}
 	
