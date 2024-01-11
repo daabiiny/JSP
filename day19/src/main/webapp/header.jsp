@@ -20,7 +20,6 @@
 		text-align: center;
 	}
 	header, main {
-		width: 900px;
 		margin: auto;
 	}
 	table#boardList,

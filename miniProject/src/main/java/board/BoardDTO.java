@@ -1,27 +1,25 @@
-package board2;
+package board;
 
 import java.sql.Date;
 
 //	IDX       NOT NULL NUMBER         
 //	TITLE     NOT NULL VARCHAR2(500)  
 //	WRITER    NOT NULL VARCHAR2(100)  
-//	CONTENT   NOT NULL VARCHAR2(4000) 
-//	IMAGE              VARCHAR2(500)  
-//	IPADDR    NOT NULL VARCHAR2(100)  
-//	VIEWCOUNT          NUMBER         
-//	WRITEDATE          DATE  
+//	CONTENT   NOT NULL VARCHAR2(2000) 
+//	WRITEDATE          DATE           
+//	DELETED            NUMBER         
+//	IMG       NOT NULL VARCHAR2(100) 
 
 public class BoardDTO {
-
+	
 	private int idx;
 	private String title;
 	private String writer;
 	private String content;
-	private String image;
-	private String ipaddr;
-	private int viewCount;
 	private Date writeDate;
 	private int deleted;
+	private String img;
+	
 	public int getIdx() {
 		return idx;
 	}
@@ -46,24 +44,6 @@ public class BoardDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
-	}
-	public String getIpaddr() {
-		return ipaddr;
-	}
-	public void setIpaddr(String ipaddr) {
-		this.ipaddr = ipaddr;
-	}
-	public int getViewCount() {
-		return viewCount;
-	}
-	public void setViewCount(int viewCount) {
-		this.viewCount = viewCount;
-	}
 	public Date getWriteDate() {
 		return writeDate;
 	}
@@ -75,6 +55,12 @@ public class BoardDTO {
 	}
 	public void setDeleted(int deleted) {
 		this.deleted = deleted;
+	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
 	}
 	
 	

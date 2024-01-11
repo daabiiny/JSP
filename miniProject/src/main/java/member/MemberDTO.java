@@ -4,17 +4,17 @@ package member;
 //	USERID   NOT NULL VARCHAR2(100) 
 //	USERPW   NOT NULL VARCHAR2(500) 
 //	USERNAME NOT NULL VARCHAR2(100) 
+//	GENDER            VARCHAR2(50)  
 //	EMAIL    NOT NULL VARCHAR2(100) 
-//	GENDER            VARCHAR2(50)
 
 public class MemberDTO {
-
+	
 	private int idx;
 	private String userid;
 	private String userpw;
 	private String username;
-	private String email;
 	private String gender;
+	private String email;
 	
 	public int getIdx() {
 		return idx;
@@ -40,19 +40,19 @@ public class MemberDTO {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
 	public String getGender() {
 		return gender;
 	}
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	
 	
-		
+	
 }
