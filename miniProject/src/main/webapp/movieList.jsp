@@ -8,7 +8,7 @@
 			<c:forEach var="dto" items="${list }">
 			<div id="movieList2">
 				<div class="movieImg">
-					<a href="${cpath }/view.jsp?idx=${dto.idx}"><img src="image/${dto.poster }"></a>
+					<a href="${cpath }/view.jsp?idx=${dto.idx}"><img src="image/${dto.poster }" height="300px"></a>
 				</div>
 				<div id="movieBox2">
 					<strong class="title">${dto.title }</strong>

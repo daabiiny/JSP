@@ -91,14 +91,14 @@ public class MemberDAO {
 		return login;
 	}
 	// 회원탈퇴 (delete)
-	public int delete(MemberDTO dto) {
+	public int delete(String userid, String userpw) {
 		int row = 0;
 		String sql = "delete from member0 where userid = ? and userpw = ?";
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, dto.getUserid());
-			pstmt.setString(2, dto.getUserpw());
+			pstmt.setString(1, userid);
+			pstmt.setString(2, userpw);
 			row = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

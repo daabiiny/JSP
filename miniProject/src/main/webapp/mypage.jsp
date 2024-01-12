@@ -8,6 +8,7 @@
 			<ul>
 				<li><a href="${cpath }/mypage.jsp">회원 정보</a></li>			
 				<li><a href="${cpath }/myboard.jsp">내가 쓴 글</a></li>			
+				<li><a href="${cpath }/deleteMember.jsp">회원탈퇴</a></li>
 			</ul>		
 		</div>
 		<div>
@@ -21,7 +22,9 @@
 					<label><input type="radio" name="gender" value="남성" ${login.gender == '남성' ? 'checked' : '' } required>남성</label>
 					<label><input type="radio" name="gender" value="여성" ${login.gender == '여성' ? 'checked' : '' } required>여성</label>
 				</p>
-				<p><input type="submit" value="정보수정"></p>
+					<p>
+						<input type="submit" value="정보수정">
+					</p>
 			</form>
 		</div>
 	</div>

@@ -4,10 +4,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="cpath" value="${pageContext.request.contextPath}"/>
 <c:set var="memberDAO" value="${MemberDAO.getInstance() }"/>
-<%-- <c:set var="boardDAO" value="${BoardDAO.getInstance() }"/> --%>
+<c:set var="boardDAO" value="${BoardDAO.getInstance() }"/>
 <c:set var="movieDAO" value="${MovieDAO.getInstance()}"/>
 <%-- <c:set var="replyDAO" value="${ReplyDAO.getInstance() }"/> --%>
-<%-- <c:set var="fileUtil" value="${FileUtil.getInstance() }"/> --%>
+<c:set var="fileUtil" value="${FileUtil.getInstance() }"/>
 
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setCharacterEncoding("UTF-8"); %>
@@ -18,6 +18,13 @@
 <meta charset="UTF-8">
 <title>miniProject</title>
 <style>
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css); 
+
+	body {
+		font-family: 'Noto Sans KR', sans-serif;
+		font-style: normal;
+		font-weight: 400;
+	}
 	a {
 		text-decoration: none;
 		color: inherit;
@@ -47,11 +54,25 @@
 	.center {
 		text-align: center;
 	}
+	.frame {
+		width: 980px;
+		margin: 20px auto;
+	}
+	.wrap {
+		width: 980px;
+		margin: 20px auto;
+		display: flex;
+		flex-flow: wrap;
+	}
+	.flex {
+		display: flex;
+	}
 	.title {
-		display: block;
-		white-space: nowrap;
-		text-overflow: ellipsis;
-		overflow: hidden;
+	    width: 210px;
+	    display: block;
+   		white-space: nowrap;
+    	text-overflow: ellipsis;
+    	overflow: hidden;
 	}
 	img {
 		padding: 0;
@@ -119,13 +140,51 @@
 		text-align: center;
 		padding: 20px 10px;
 	}
-	div#movieList, div#movieList2
-	> div > a > img {
-		height: 300px;
-	}
 	div#movieBox,
 	div#mobveBox2 {
 		width: 220px;
+	}
+	.viewIdx {
+		width: 600px;
+		margin: 20px auto;
+		padding: 10px 0;
+		background-color: #fb4357;
+		color: white;
+		font-size: 19px;
+	}
+	div#boardImg > img {
+		width: 180px;
+	}
+	div#oneBoard {
+		padding: 0 5px;
+		margin-bottom: 15px;
+	}
+	div#boardInfo {
+		width: 280px;
+		margin-left: 20px;
+	}
+	div#boardInfo > div {
+		margin: 20px 0;
+	}
+	div#boardContent {
+		display: block;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+	div#viewImg > img {
+		width: 400px;
+	}
+	div#date {
+		text-align: right;
+	}
+	input#inputTitle {
+		width: 600px;
+		height: 20px;
+	}
+	textarea#inputText {
+		width: 600px;
+		height: 400px;
 	}
 
 </style>

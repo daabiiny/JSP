@@ -8,7 +8,7 @@
 <c:set var="row" value="${memberDAO.update(dto) }" />
 
 <c:if test="${row != 0 }">
-	<c:redirect url="/mypage.jsp"/>
+	<c:redirect url="/"/>
 </c:if>
 
 </body>
