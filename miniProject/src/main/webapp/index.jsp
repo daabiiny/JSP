@@ -3,11 +3,7 @@
 <%@ include file="header.jsp" %>
 
 <main>
-	<div id="menu">
-		<a href="${cpath }">홈</a>
-		<a href="${cpath }/movieList.jsp">무비차트</a>
-		<a href="${cpath }/boardList.jsp">무비리뷰</a>
-	</div>
+
 	<div id="movieVideo">
 		<div id="mainVideo">
 			<video autoplay="" muted="">

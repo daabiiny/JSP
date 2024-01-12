@@ -24,6 +24,8 @@
 		font-family: 'Noto Sans KR', sans-serif;
 		font-style: normal;
 		font-weight: 400;
+		width: 1423px;
+		margin: 0;
 	}
 	a {
 		text-decoration: none;
@@ -81,6 +83,9 @@
 	ol, ul {
    		list-style: none;
 	}
+	div#menu {
+		padding-left: 10px;
+	}
 	div#box,
 	div#box2 {
 		display: flex;
@@ -90,6 +95,7 @@
 	}
 	div#head {
 		background-color: #25274E;
+		height: 80px;
 		text-align: center;
 		border: 0;
 	}
@@ -99,8 +105,8 @@
 		align-items: center;
 	}
 	div#logo > a > img {
-		height: 40px;
-		padding-right: 10px;
+		width: 117px;
+		padding: 0 10px;
 	}
 	div#logocontent {
 		width: 400px;
@@ -186,12 +192,79 @@
 		width: 600px;
 		height: 400px;
 	}
-
+	
+/* 	스타일 수정 */
+	#loginBox,
+	#joinBox {
+		width: 580px;
+	    height: 100%;
+	    margin: 40px auto 42px;
+	    padding: 50px 70px;
+	    border: 1px solid rgba(0,0,0,.12);
+	    font-size: 12px;
+	    box-sizing: border-box;
+	}
+	#loginBox > h3 {
+		text-align: center;
+	}
+	#loginID > input,
+	#loginPW > input {
+		width: 438px;
+		height: 40px;
+		text-align: center;
+		margin-bottom: 10px;
+	}
+	#loginSubmit > input {
+		width: 446px;
+		height: 46px;
+		background-color: #FB4357;
+		color: white;
+		border: none;
+		font-weight:bold;
+	}
+	#joinBox > p > input {
+		width: 438px;
+		height: 40px;
+		text-align: center;
+		margin-bottom: 10px;
+		
+	}
+	#joinSelect input[type=radio] {
+    	display: none;
+	}
+	#joinSelect input[type=radio]+label {
+		display: inline-block;
+	    cursor: pointer;
+	    height: 24px;
+	    width: 150px;
+	    border: 1px solid #333;
+	    line-height: 24px;
+	    text-align: center;
+	    font-weight:bold;
+	    font-size: 13px;
+	    margin-bottom: 10px;
+	}
+	#joinSelect input[type=radio]+label {
+	    background-color: #fff;
+    	color: #333;
+	}
+	#joinSelect input[type=radio]:checked + label {
+		background-color: #333;
+    	color: #fff;
+	}
+	#joinSubmit > input {
+		width: 446px;
+		height: 46px;
+		background-color: #FB4357;
+		color: white;
+		border: none;
+		font-weight:bold;
+	}
 </style>
 
 </head>
 <body>
-
+	
 	<div id="head">
 		<img src="https://adimg.cgv.co.kr/images/202312/Alienoid/0109_980x80.jpg">
 	</div>
@@ -232,6 +305,12 @@
 				</ul>
 			</nav>
 		</div>
+	</div>
+	
+	<div id="menu">
+		<a href="${cpath }">홈</a>
+		<a href="${cpath }/movieList.jsp">무비차트</a>
+		<a href="${cpath }/boardList.jsp">무비리뷰</a>
 	</div>
 
 

@@ -12,15 +12,17 @@
 	
 	<c:if test="${pageContext.request.method == 'GET' }">
 		<form method="POST">
+		<div id="joinBox">
 			<p><input type="text" name="userid" placeholder="아이디" required autofocus></p>
 			<p><input type="password" name="userpw" placeholder="비밀번호" required></p>
 			<p><input type="text" name="username" placeholder="이름" required></p>
-			<p><input type="email" name="email" placeholder="**@**.**" required></p>
-			<p>
-				<label><input type="radio" name="gender" value="남성">남성</label>
-				<label><input type="radio" name="gender" value="여성">여성</label>
+			<p><input type="email" name="email" placeholder="이메일" required></p>
+			<p id="joinSelect">
+				<input type="radio" name="gender" value="남성"><label>남성</label>
+				<input type="radio" name="gender" value="여성"><label>여성</label>
 			</p>
-			<p><input type="submit" value="가입"></p>
+			<p id="joinSubmit"><input type="submit" value="가입"></p>
+		</div>
 		</form>
 	</c:if>
 	
