@@ -51,6 +51,25 @@ public class MovieDAO {
 		dto.setTitle(rs.getString("title"));
 		return dto;
 	}
+	// 영화 인기 top4 (selectListBestMovie)
+	// select * from movie0;
+	public List<MovieDTO> selectListBestMovie() {
+		ArrayList<MovieDTO> list = new ArrayList<>();
+		String sql = "select * from movie0 fetch next 4 rows only ";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(mapping(rs));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return list;		
+	}
 	// 최신 영화 목록 (selectListMovie)
 	// select * from movie0;
 	public List<MovieDTO> selectListMovie() {
@@ -71,5 +90,24 @@ public class MovieDAO {
 		return list;		
 	}
 	// 영화별 상세정보 (selectOneList)
+	public MovieDTO selectOneList(int idx) {
+		MovieDTO dto = null;
+		String sql = "select * from movie0 where idx = ?";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				dto = mapping(rs);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return dto;
+		
+	}
 	
 }

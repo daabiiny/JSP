@@ -3,10 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="cpath" value="${pageContext.request.contextPath}"/>
-<%-- <c:set var="memberDAO" value="${MemberDAO.getInstance() }"/> --%>
+<c:set var="memberDAO" value="${MemberDAO.getInstance() }"/>
 <%-- <c:set var="boardDAO" value="${BoardDAO.getInstance() }"/> --%>
-<c:set var="movieDAO" value="${movieDAO.getInstance()}"/>
-<%-- <c:set var="replyDAO" value="${replyDAO.getInstance() }"/> --%>
+<c:set var="movieDAO" value="${MovieDAO.getInstance()}"/>
+<%-- <c:set var="replyDAO" value="${ReplyDAO.getInstance() }"/> --%>
 <%-- <c:set var="fileUtil" value="${FileUtil.getInstance() }"/> --%>
 
 <% request.setCharacterEncoding("UTF-8"); %>
@@ -25,9 +25,12 @@
 	a:hover {
 		text-decoration: underline;
 	}
-	header {
+	header, section {
 		width: 980px;
 		margin: 0 auto;
+	}
+	h2 {
+		padding: 20px 15px; 
 	}
 	.sb {
 		width: 980px;
@@ -41,54 +44,136 @@
 		display: flex;
 		justify-content: space-around;
 	}
-	div#logo > img {
-		height: 50px;
+	.center {
+		text-align: center;
+	}
+	.title {
+		display: block;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+	img {
+		padding: 0;
+		margin: 0;
+	}
+	ol, ul {
+   		list-style: none;
+	}
+	div#box,
+	div#box2 {
+		display: flex;
+        flex-flow: wrap;
+        width: 980px;
+        margin: auto;
+	}
+	div#head {
+		background-color: #25274E;
+		text-align: center;
+		border: 0;
+	}
+	div#logo {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	div#logo > a > img {
+		height: 40px;
+		padding-right: 10px;
 	}
 	div#logocontent {
-		width: 500px;
+		width: 400px;
 	}
 	div#logocontent > nav > ul {
 	 	display: flex;
 	 	list-style: none;
-	 	justify-content: space-between;
+	 	justify-content: space-around;
 	}
 	div#logocontent > nav > ul > li {
-		padding: 10px;
+		font-size: 13px;
+		text-align: center;
+	}
+	div#logocontent > img {
+		width: 36px;
 	}
 	div#menu {
 		width: 980px;
 		margin: 0 auto;
 	}
 	div#movieVideo {
-		border: 1px solid red;
-		height: 500px;
-		margin: 20px auto;
+	    background-color: #000;
+	    border-top: 2px solid red;
+	    margin: 20px auto;
 	}
-	div#movieList > img {
-		height: 100px;
+	div#mainVideo {
+		overflow: hidden;
+  	    position: relative;
+		text-align: center;
+ 	    left: 0;
+ 	    top: 0;
+	    width: 100%;
+	    height: 100%;
 	}
+	div#movieList,
+	div#movieList2 {
+		text-align: center;
+		padding: 20px 10px;
+	}
+	div#movieList, div#movieList2
+	> div > a > img {
+		height: 300px;
+	}
+	div#movieBox,
+	div#mobveBox2 {
+		width: 220px;
+	}
+
 </style>
 
 </head>
 <body>
 
+	<div id="head">
+		<img src="https://adimg.cgv.co.kr/images/202312/Alienoid/0109_980x80.jpg">
+	</div>
+	
 <header>
 	<div class="sb">
 		<div id="logo">
-		<a href="${cpath }"></a><img src="https://img.cgv.co.kr/R2014/images/common/logo/logoRed.png">
+		<a href="${cpath }"><img src="https://img.cgv.co.kr/R2014/images/common/logo/logoRed.png"></a>
+		<span>C U L T U R E P L E X</span>
 		</div>
 		<div id="logocontent">
 			<nav>
 				<ul>
-					<li><a href="${cpath }/login.jsp">로그인</a></li>
-					<li><a href="${cpath }/join.jsp">회원가입</a></li>
-					<li><a href="${cpath }/mypage.jsp">MY CGV</a></li>
+					<c:if test="${empty login }">
+						<li>
+							<a href="${cpath }/login.jsp"><img src="https://img.cgv.co.kr/R2014/images/common/ico/loginPassword.png" alt="로그인" style="width:36px;"></a>
+							<br>
+							<span>로그인</span>
+						</li>
+						<li>
+							<a href="${cpath }/join.jsp"><img src="https://img.cgv.co.kr/R2014/images/common/ico/loginJoin.png" alt="회원가입" style="width:36px;"></a>
+							<br>
+							<span>회원가입</span>
+						</li>
+					</c:if>
+					<c:if test="${not empty login }">
+						<li>
+							<a href="${cpath }/logout.jsp"><img src="https://img.cgv.co.kr/R2014/images/common/ico/loginPassword.png" alt="로그아웃" style="width:36px;"></a>
+							<br>
+							<span>로그아웃</span>
+						</li>
+					</c:if>
+						<li>
+							<a href="${cpath }/mypage.jsp"><img src="https://img.cgv.co.kr/R2014/images/common/ico/loginCustomer.png" alt="내정보" style="width:36px;"></a>
+							<br>
+							<span>MY CGV</span>
+						</li>
 				</ul>
 			</nav>
 		</div>
 	</div>
 
-</header>
 
-</body>
-</html>
+</header>
