@@ -18,8 +18,8 @@
 			<p><input type="text" name="username" placeholder="이름" required></p>
 			<p><input type="email" name="email" placeholder="이메일" required></p>
 			<p id="joinSelect">
-				<input type="radio" name="gender" value="남성"><label>남성</label>
-				<input type="radio" name="gender" value="여성"><label>여성</label>
+				<label><input type="radio" name="gender" value="남성">남성</label>
+				<label><input type="radio" name="gender" value="여성">여성</label>
 			</p>
 			<p id="joinSubmit"><input type="submit" value="가입"></p>
 		</div>

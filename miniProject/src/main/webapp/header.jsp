@@ -204,7 +204,8 @@
 	    font-size: 12px;
 	    box-sizing: border-box;
 	}
-	#loginBox > h3 {
+	#loginBox > h3,
+	#mypageBox > h3 {
 		text-align: center;
 	}
 	#loginID > input,
@@ -227,38 +228,42 @@
 		height: 40px;
 		text-align: center;
 		margin-bottom: 10px;
-		
 	}
-	#joinSelect input[type=radio] {
-    	display: none;
+	#joinSelect {
+		font-size: 13px;
 	}
-	#joinSelect input[type=radio]+label {
-		display: inline-block;
-	    cursor: pointer;
-	    height: 24px;
-	    width: 150px;
-	    border: 1px solid #333;
-	    line-height: 24px;
-	    text-align: center;
-	    font-weight:bold;
-	    font-size: 13px;
-	    margin-bottom: 10px;
-	}
-	#joinSelect input[type=radio]+label {
-	    background-color: #fff;
-    	color: #333;
-	}
-	#joinSelect input[type=radio]:checked + label {
-		background-color: #333;
-    	color: #fff;
-	}
-	#joinSubmit > input {
+	#joinSubmit > input,
+	#mypageSubmit > input {
 		width: 446px;
 		height: 46px;
 		background-color: #FB4357;
 		color: white;
 		border: none;
 		font-weight:bold;
+	}
+	#mypageContent {
+		width: 980px;
+		display: flex;
+		margin: 20px auto;
+	}
+	#mypageBox {
+		width: 580px;
+	    height: 100%;
+	    padding: 50px 70px;
+	   	margin-left: 100px;
+	    border: 1px solid rgba(0,0,0,.12);
+	    font-size: 12px;
+	    box-sizing: border-box;
+	}
+	#mypageBox > p > input {
+		width: 438px;
+		height: 40px;
+		text-align: center;
+		margin: 0 auto;
+	}
+	#mypageSelect {
+		text-align: center;
+		font-size: 13px;
 	}
 </style>
 
