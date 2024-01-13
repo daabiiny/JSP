@@ -49,7 +49,7 @@ public class BoardDAO {
 	private BoardDTO mapping(ResultSet rs) throws SQLException {
 		BoardDTO dto = new BoardDTO();
 		dto.setContent(rs.getString("content"));
-		dto.setDate(rs.getDate("writeDate"));
+		dto.setWriteDate(rs.getDate("writeDate"));
 		dto.setDeleted(rs.getInt("deleted"));
 		dto.setIdx(rs.getInt("idx"));
 		dto.setImg(rs.getString("img"));
@@ -130,5 +130,23 @@ public class BoardDAO {
 	      } finally {close();}
 	      return row;
 	   }
-	
+	// 내가 쓴 글 (삭제된 글 포함)
+	public List<BoardDTO> selectListByWriter(String userid) {
+		ArrayList<BoardDTO> list = new ArrayList<>();
+		String sql = "select * from board0 where writer = ? order by idx desc";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userid);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(mapping(rs));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return list;
+	}
 }

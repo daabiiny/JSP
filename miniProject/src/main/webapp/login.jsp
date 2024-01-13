@@ -3,7 +3,6 @@
 <%@ include file="header.jsp" %>
 
 <section>
-
 	<c:if test="${pageContext.request.method == 'GET' }">
 		<form method="POST">
 			<div id="loginBox">
@@ -14,11 +13,6 @@
 			</div>
 		</form>
 	</c:if>
-	<div>
-	
-	</div>
-	
-
 </section>
 
 <c:if test="${pageContext.request.method == 'POST' }">
@@ -27,8 +21,6 @@
 	<c:set var="login" value="${memberDAO.login(dto) }" scope="session"/>
 	<c:redirect url="/"/>
 </c:if>
-
-
 
 </body>
 </html>

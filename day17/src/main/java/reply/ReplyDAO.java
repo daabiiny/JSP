@@ -42,7 +42,7 @@ public class ReplyDAO {
 	}
 	public ReplyDTO mapping(ResultSet rs) throws SQLException {
 		ReplyDTO dto = new ReplyDTO();
-		dto.setBoard_idx(rs.getInt("idx"));
+		dto.setBoard_idx(rs.getInt("board_idx"));
 		dto.setContent(rs.getString("content"));
 		dto.setIdx(rs.getInt("idx"));
 		dto.setWriteDate(rs.getDate("writeDate"));

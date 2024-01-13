@@ -27,7 +27,7 @@
 			</div>
 
 			<div id="boardInfo">
-				<div>${dto.idx }${dto.writer } ${dto.date } ${dto.viewCount }</div>
+				<div>${dto.idx }${dto.writer } ${dto.writeDate } ${dto.viewCount }</div>
 				<div>
 					<a href="${cpath }/boardView.jsp?idx=${dto.idx }"> ${dto.title }</a>
 				</div>

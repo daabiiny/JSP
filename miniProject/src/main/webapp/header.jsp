@@ -6,7 +6,7 @@
 <c:set var="memberDAO" value="${MemberDAO.getInstance() }"/>
 <c:set var="boardDAO" value="${BoardDAO.getInstance() }"/>
 <c:set var="movieDAO" value="${MovieDAO.getInstance()}"/>
-<%-- <c:set var="replyDAO" value="${ReplyDAO.getInstance() }"/> --%>
+<c:set var="replyDAO" value="${ReplyDAO.getInstance() }"/>
 <c:set var="fileUtil" value="${FileUtil.getInstance() }"/>
 
 <% request.setCharacterEncoding("UTF-8"); %>
@@ -24,7 +24,7 @@
 		font-family: 'Noto Sans KR', sans-serif;
 		font-style: normal;
 		font-weight: 400;
-		width: 1423px;
+		width: 100%;
 		margin: 0;
 	}
 	a {
@@ -37,6 +37,12 @@
 	header, section {
 		width: 980px;
 		margin: 0 auto;
+	}
+	footer {
+		background-color: #f8f8f8f8;
+		height: 432px;
+		padding: 0;
+		margin: 0;
 	}
 	h2 {
 		padding: 20px 15px; 
@@ -86,13 +92,21 @@
 	div#menu {
 		padding-left: 10px;
 	}
-	div#box,
-	div#box2 {
+	div#box1,
+	div#box2,
+	div#box3 {
 		display: flex;
         flex-flow: wrap;
         width: 980px;
         margin: auto;
 	}
+	.box {
+		display: flex;
+        justify-content: space-around;
+        width: 980px;
+        margin: auto;
+	}
+	
 	div#head {
 		background-color: #25274E;
 		height: 80px;
@@ -265,6 +279,50 @@
 		text-align: center;
 		font-size: 13px;
 	}
+	table#myboardList {
+		border-collapse: collapse;
+		width: 900px;
+		margin: 20px auto;
+	}
+	table#myboardList td,
+	table#myboardList th {
+		padding: 10px;
+		text-align: center;
+		border: 1px solid black;
+	}
+	table#myboardList > tr > td {
+		width: 10px;
+	}
+	
+	#movieImg {
+		position: relative;
+	}
+	#movieImg > em {
+		position: absolute;
+		font-size: 40px;
+		bottom: 0px;
+		left: 10px;
+		color: white;
+	}
+	#policyList {
+		display: flex;
+		justify-content: space-around;
+		padding: 0;
+		font-size: 12px;
+		border-bottom: 1px solid lightgrey;
+	}
+	#policyList > li {
+		margin-top: 200px;
+		margin-bottom: 20px;
+	}
+	#company_info {
+		margin-top: 20px;
+		font-size: 11px;
+		padding-left: 10px;
+	
+	}
+
+	
 </style>
 
 </head>
@@ -317,6 +375,4 @@
 		<a href="${cpath }/movieList.jsp">무비차트</a>
 		<a href="${cpath }/boardList.jsp">무비리뷰</a>
 	</div>
-
-
 </header>

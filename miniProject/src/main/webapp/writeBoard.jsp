@@ -29,7 +29,7 @@
 		const row = '${row}'
 		if(row != 0) {
 			alert('작성 완료')
-			location.href = '${cpath}'
+			location.href = '${cpath}/boardList.jsp'
 		}
 		else {
 			alert('작성 실패')
