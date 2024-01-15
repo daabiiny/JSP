@@ -59,7 +59,7 @@ public class BoardDAO {
 		return dto;
 	}
 	
-	public List<BoardDTO> selectListBoard(String search) {
+	public List<BoardDTO> selectListBoard(String search, Paging paging) {
 		ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
 		String sql = "select * from board0"
 				+ "	where"
@@ -67,13 +67,17 @@ public class BoardDAO {
 				+ "		(title like '%' || ? || '%' or"
 				+ "		content like '%' || ? || '%' or"
 				+ "		writer like '%' || ? || '%')	"
-				+ "	order by idx desc";
+				+ "	order by idx desc"
+				+ " offset ? rows"
+				+ " fetch next ? rows only";
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, search);
 			pstmt.setString(2, search);
 			pstmt.setString(3, search);
+			pstmt.setInt(4, paging.getOffset());
+			pstmt.setInt(5, paging.getFetch());
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				list.add(mapping(rs));
@@ -82,6 +86,30 @@ public class BoardDAO {
 			e.printStackTrace();
 		} finally {close();}
 		return list;
+	}
+	
+	public int selectCount(String search) {
+		int count = 0;
+		String sql = "select count(*) from board0"
+				+ " where"
+				+ "		deleted = 0 and"
+				+ "		(title like '%' || ? || '%' or"
+				+ "		writer like '%' || ? || '%' or"
+				+ "		content like '%' || ? || '%')";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, search);
+			pstmt.setString(2, search);
+			pstmt.setString(3, search);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				count = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {close();}
+		return count;
 	}
 	
 	public int updateViewCount(int idx) {
@@ -114,6 +142,7 @@ public class BoardDAO {
 		} finally {close();}
 		return dto;
 	}
+	
 	public int insert(BoardDTO dto) {
 	      int row = 0;
 	      String sql = "insert into board0 (title, content, img, writer) values (?, ?, ?, ?)";
@@ -130,7 +159,43 @@ public class BoardDAO {
 	      } finally {close();}
 	      return row;
 	   }
-	// 내가 쓴 글 (삭제된 글 포함)
+	
+	public int update(BoardDTO dto, int idx) {
+		int row = 0;
+		String sql = "update board0"
+				+ " set "
+				+ " 	title = ?,"
+				+ " 	content = ?,"
+				+ " 	img = ?"
+				+ "	where "
+				+ "		idx = ?";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getTitle());
+			pstmt.setString(2, dto.getContent());
+			pstmt.setString(3, dto.getImg());
+			pstmt.setInt(4, idx);
+			row = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {close();}
+		return row;
+	}
+	
+	public int delete(int idx) {
+		int row = 0;
+		String sql = "update board0 set deleted = 1 where idx = ?";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			row = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {close();}
+		return row;
+	}
 	public List<BoardDTO> selectListByWriter(String userid) {
 		ArrayList<BoardDTO> list = new ArrayList<>();
 		String sql = "select * from board0 where writer = ? order by idx desc";

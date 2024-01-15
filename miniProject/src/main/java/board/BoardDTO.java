@@ -22,6 +22,18 @@ public class BoardDTO {
 	private String img;
 	private int viewCount;
 	
+	public Date getWriteDate() {
+		return writeDate;
+	}
+	public void setWriteDate(Date writeDate) {
+		this.writeDate = writeDate;
+	}
+	public int getViewCount() {
+		return viewCount;
+	}
+	public void setViewCount(int viewCount) {
+		this.viewCount = viewCount;
+	}
 	public int getIdx() {
 		return idx;
 	}
@@ -46,12 +58,6 @@ public class BoardDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Date getWriteDate() {
-		return writeDate;
-	}
-	public void setWriteDate(Date writeDate) {
-		this.writeDate = writeDate;
-	}
 	public int getDeleted() {
 		return deleted;
 	}
@@ -63,12 +69,6 @@ public class BoardDTO {
 	}
 	public void setImg(String img) {
 		this.img = img;
-	}
-	public int getViewCount() {
-		return viewCount;
-	}
-	public void setViewCount(int viewCount) {
-		this.viewCount = viewCount;
 	}
 	
 	

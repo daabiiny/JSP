@@ -22,5 +22,4 @@
 	<c:redirect url="/"/>
 </c:if>
 
-</body>
-</html>
+<%@ include file="footer.jsp" %>

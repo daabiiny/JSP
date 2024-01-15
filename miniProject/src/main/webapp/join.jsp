@@ -30,17 +30,18 @@
 		<jsp:useBean id="dto" class="member.MemberDTO"/>
 		<jsp:setProperty property="*" name="dto"/>
 		<c:set var="row" value="${memberDAO.insert(dto) }"/>
-		<c:if test="${row != 0 }">
-			<c:redirect url="/login.jsp"/>
-		</c:if>
-		
 		<script>
-			alert('회원 가입이 실패되었습니다')
-			history.go(-1)
-		</script>
+	      const row = '${row}'
+	      if(row != 0) {
+	         alert('회원가입이 완료되었습니다')
+	         location.href = '${cpath}/login.jsp'
+	      }
+	      else {
+	         alert('회원가입에 실패하였습니다')
+	         history.go(-1)
+	      }
+  	 	</script>
 	</c:if>
-
 </section>
 
-</body>
-</html>
+<%@ include file="footer.jsp" %>

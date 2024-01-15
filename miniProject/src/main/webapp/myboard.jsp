@@ -4,6 +4,7 @@
 
 <section>
 	<table id="myboardList">
+		<div><h2>📌 ${login.userid }님이 쓴 글</h2></div>
 		<c:set var="list" value="${boardDAO.selectListByWriter(login.userid) }"/>
 		<c:forEach var="dto" items="${list }">
 		<thead>
@@ -18,9 +19,12 @@
 		</thead>
 			<tr>
 				<td>${dto.idx }</td>
-				<td><img src="${cpath}/reviewImage/${dto.img }" width="100px;">
-					<a href="${cpath}/boardView.jsp?idx=${dto.idx}">
-					${dto.title }</a>
+				<td>
+					<div style="display: flex; justify-content: center; align-items: center;">
+						<img src="${cpath}/reviewImage/${dto.img }" width="100px;">
+						<a href="${cpath}/boardView.jsp?idx=${dto.idx}">
+						${dto.title }</a>
+					</div>
 				</td>
 				<td>${dto.writer }</td>
 				<td>${dto.writeDate }</td>
@@ -30,6 +34,4 @@
 		</c:forEach>
 	</table>
 </section>
-
-</body>
-</html>
+<%@ include file="footer.jsp" %>

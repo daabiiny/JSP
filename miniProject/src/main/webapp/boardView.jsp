@@ -17,6 +17,17 @@
 <div class="frame">${dto.content }</div>
 <div class="frame" id="date"><fmt:formatDate value="${dto.writeDate }" 
 			pattern="yyyy년 MM월 dd일 a hh시 mm분" /></div>
+			
+<div class="sb">
+	<div><a href="${cpath }/boardList.jsp"><button>목록</button></a></div>
+	
+	<c:if test="${dto.writer == login.userid }">
+	<div>
+		<a href="${cpath }/modifyBoard.jsp?idx=${dto.idx }"><button>수정</button></a>
+		<a href="${cpath }/deleteBoard.jsp?idx=${dto.idx }"><button>삭제</button></a>
+	</div>
+	</c:if>
+</div>
 
 <section>
 	<div id="reply">
@@ -47,5 +58,5 @@
 </section>
 
 
-</body>
-</html>
+
+<%@ include file="footer.jsp" %>

@@ -7,6 +7,7 @@
 			<c:set var="list" value="${movieDAO.selectListMovie() }"/>
 			<c:forEach var="dto" items="${list }">
 			<div id="movieList2">
+				<div class="viewIdx" style="font-size: 15px;">NO. ${dto.idx }</div>
 				<div class="movieImg">
 					<a href="${cpath }/view.jsp?idx=${dto.idx}"><img src="image/${dto.poster }" height="300px"></a>
 				</div>
@@ -18,6 +19,6 @@
 			</div>
 			</c:forEach>
 		</div>
-	</section>
-</body>
-</html>
+</section>
+
+<%@ include file="footer.jsp" %>

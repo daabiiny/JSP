@@ -7,6 +7,10 @@ package movie;
 //	RELEASEDATE NOT NULL VARCHAR2(200)  
 //	ACTOR       NOT NULL VARCHAR2(500)  
 //	CONTENT     NOT NULL VARCHAR2(4000) 
+//	MENT        NOT NULL VARCHAR2(500)  
+//	SCORE       NOT NULL VARCHAR2(50)   
+//	TRAILER     NOT NULL VARCHAR2(2000) 
+//	PERSON      NOT NULL VARCHAR2(100) 
 
 public class MovieDTO {
 
@@ -17,7 +21,35 @@ public class MovieDTO {
 	private String releaseDate;
 	private String actor;
 	private String content;
+	private String ment;
+	private String score;
+	private String trailer;
+	private String person;
 	
+	public String getMent() {
+		return ment;
+	}
+	public void setMent(String ment) {
+		this.ment = ment;
+	}
+	public String getScore() {
+		return score;
+	}
+	public void setScore(String score) {
+		this.score = score;
+	}
+	public String getTrailer() {
+		return trailer;
+	}
+	public void setTrailer(String trailer) {
+		this.trailer = trailer;
+	}
+	public String getPerson() {
+		return person;
+	}
+	public void setPerson(String person) {
+		this.person = person;
+	}
 	public int getIdx() {
 		return idx;
 	}

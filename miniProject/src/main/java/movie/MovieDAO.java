@@ -49,6 +49,10 @@ public class MovieDAO {
 		dto.setPoster(rs.getString("poster"));
 		dto.setReleaseDate(rs.getString("releaseDate"));
 		dto.setTitle(rs.getString("title"));
+		dto.setMent(rs.getString("ment"));
+		dto.setPerson(rs.getString("person"));
+		dto.setScore(rs.getString("score"));
+		dto.setTrailer(rs.getString("trailer"));
 		return dto;
 	}
 	// 영화 인기 top4 (selectListBestMovie)
