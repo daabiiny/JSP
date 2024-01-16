@@ -5,9 +5,16 @@
 <main>
 	<div id="movieVideo">
 		<div id="mainVideo">
-			<video autoplay="" muted="">
-	             <source src="https://adimg.cgv.co.kr/images/202401/dogman/Dogman_PC_1080x608.mp4" type="video/mp4">
+			<div id="gra"></div>
+			<video autoplay="" muted="" style="width: 980px;">
+	            <source src="https://adimg.cgv.co.kr/images/202401/dogman/Dogman_PC_1080x608.mp4" type="video/mp4">
 	        </video>
+			<div id="mainVideoTitle">도그맨</div>
+ 			<div id="mainVideoSub">
+ 				불행이 있는 곳 마다
+ 				<br>신은 개를 보낸다
+			</div>
+			<div id="mainVideobtn">상세보기 ></div>
 		</div>
 	</div>
 	<section>

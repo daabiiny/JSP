@@ -14,7 +14,10 @@
 		<form method="POST">
 		<div id="joinBox">
 			<p><input type="text" name="userid" placeholder="아이디" required autofocus></p>
-			<p><input type="password" name="userpw" placeholder="비밀번호" required></p>
+			<p>
+				<input type="password" name="userpw" placeholder="비밀번호" required>
+				<span class="pw1_message"></span>
+			</p>
 			<p><input type="text" name="username" placeholder="이름" required></p>
 			<p><input type="email" name="email" placeholder="이메일" required></p>
 			<p id="joinSelect">
@@ -24,7 +27,25 @@
 			<p id="joinSubmit"><input type="submit" value="가입"></p>
 		</div>
 		</form>
+		<script>
+		const userpw = document.querySelector('input[name="userpw"]')
+		const pw1_message = document.querySelector('.pw1_message')
+		
+		 function pw1Handler(event) {
+            const pw1Value = event.target.value
+            if(pw1Value.length < 4) {
+                pw1_message.innerText = '비밀번호는 4자 이상이여야 합니다'
+                pw1_message.style.color = 'red'
+            }
+            else {
+                pw1_message.innerText = '사용가능한 비밀번호 입니다'
+                pw1_message.style.color = 'blue'
+            }
+        }
+		userpw.onkeyup = pw1Handler
+		</script>
 	</c:if>
+	
 	
 	<c:if test="${pageContext.request.method == 'POST' }">
 		<jsp:useBean id="dto" class="member.MemberDTO"/>
@@ -42,6 +63,8 @@
 	      }
   	 	</script>
 	</c:if>
+	
 </section>
+
 
 <%@ include file="footer.jsp" %>

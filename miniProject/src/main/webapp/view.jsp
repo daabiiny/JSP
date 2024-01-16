@@ -22,13 +22,13 @@
 				</div>
 			</div>
 		</div>
-		<div><img src="image/${dto.poster }" width="350px;"></div>
+		<div id="viewPoster"><img src="image/${dto.poster }" width="350px;"></div>
 	</div>
 	<br>
-	<pre id="viewContent">${dto.content }</pre>
+	<div id="viewContent">${dto.content }</div>
 	
 	<div id="trailer">
-		<strong id="trailerTitle"><h3>트레일러</h3></strong>
+		<div id="trailerTitle"><h3>▶ 트레일러</h3></div>
 		<video id="trailervideo" autoplay="" muted="">
 	             <source src="${dto.trailer }" type="video/mp4">
 	    </video>

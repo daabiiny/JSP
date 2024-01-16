@@ -2,17 +2,16 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="header.jsp"%>
 
-<hr>
-
 <div class="sb">
-	<div>
-		<form>
+	<div class="rel">
+		<form id="searchBox">
 			<input type="text" name="search" value="${param.search }"
-				placeholder="검색어를 입력하세요"> <input type="submit" value="검색">
+				id="searchText">
+			<button><img src="https://www.emojiall.com/images/240/apple/1f50d.png"></button>
 		</form>
 	</div>
 	<div>
-		<a href="${cpath }/writeBoard.jsp"><button>새 글 작성</button></a>
+		<a href="${cpath }/writeBoard.jsp"><img src="https://ssl.pstatic.net/static/blog/img_write_btn.png" width="86" height="37" alt="글쓰기"></a>
 	</div>
 </div>
 
@@ -31,15 +30,15 @@
 			</div>
 
 			<div id="boardInfo">
-				<div class="flexSb">
-					<div>${dto.idx }</div>
-					<div>${dto.writer } 조회수 : ${dto.viewCount }</div>
+				<div id="fontsize26">❝</div>
+				<div id="boardContent" class="contentColor">
+					<a href="${cpath }/boardView.jsp?idx=${dto.idx }">
+					${dto.content }</a>
 				</div>
+				<div id="contentWriter" class="contentColor">${dto.writer }</div>
 				<div class="boardTitle">
 					<a href="${cpath }/boardView.jsp?idx=${dto.idx }"> ${dto.title }</a>
 				</div>
-				<div id="boardContent">${dto.content }</div>
-				 ${dto.writeDate }
 			</div>
 		</div>
 	</c:forEach>

@@ -6,7 +6,7 @@
 	<div id="mypageContent">
 		<div id="mypageCategory">
 			<ul>
-				<li><a href="${cpath }/mypage.jsp">회원 정보</a></li>			
+				<li><a href="${cpath }/mypage.jsp">회원정보</a></li>			
 				<li><a href="${cpath }/myboard.jsp">내가 쓴 글</a></li>			
 				<li><a href="${cpath }/deleteMember.jsp">회원탈퇴</a></li>
 			</ul>		

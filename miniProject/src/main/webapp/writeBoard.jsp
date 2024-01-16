@@ -10,12 +10,15 @@
 </c:if>
 
 <c:if test="${pageContext.request.method == 'GET' }">
-<div class="frame">
+<div id="writeBoardForm">
+	<h2>무비 리뷰 글쓰기</h2>
 	<form method="POST" enctype="multipart/form-data">
-		<p><input type="text" name="title" placeholder="제목" id="inputTitle" required autofocus></p>
-		<p><textarea name="content" placeholder="내용" id="inputText" required></textarea></p>
-		<p><input type="file" name="uploadFile" required></p>
-		<p><input type="submit" value="등록"></p>
+		<p><input type="text" name="title" placeholder="제목을 입력하세요" id="inputTitle" required autofocus></p>
+		<p><textarea name="content" placeholder="내용을 입력하세요" id="inputText" required></textarea></p>
+		<p class="sa">
+			<input type="file" name="uploadFile" required>
+			<input type="submit" value="등록">
+		</p>
 		
 		<input type="hidden" name="writer" value="${login.userid }">
 	</form>

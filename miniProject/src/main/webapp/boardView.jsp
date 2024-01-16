@@ -6,17 +6,17 @@
 
 <c:set var="dto" value="${boardDAO.selectOneBoard(param.idx) }"/>
 
-<div class="sb">
-	<div>${dto.idx }. ${dto.title }</div>
-	<div>작성자 : ${dto.writer }</div>
+<div id="boarderTop" class="frame">
+	<div id="boarderTopIdx">${dto.idx }</div>
+	<div id="boarderTopTitle">${dto.title }</div>
+	<div class="flexSb">
+		<div class="boarderTopWriter">🧑🏻 ${dto.writer } <fmt:formatDate value="${dto.writeDate }" 
+					pattern="yyyy.MM.dd.HH:mm" /></div>
+		<div class="boarderTopWriter">조회수 ${dto.viewCount }</div>
+	</div>
 </div>
-<div class="flex frame">
-	<div class="frame" id="viewImg"><img src="${cpath }/reviewImage/${dto.img }"></div>
-	<div>조회수 ${dto.viewCount }</div>
-</div>
+<div class="frame" id="viewImg"><img src="${cpath }/reviewImage/${dto.img }"></div>
 <div class="frame">${dto.content }</div>
-<div class="frame" id="date"><fmt:formatDate value="${dto.writeDate }" 
-			pattern="yyyy년 MM월 dd일 a hh시 mm분" /></div>
 			
 <div class="sb">
 	<div><a href="${cpath }/boardList.jsp"><button>목록</button></a></div>
@@ -49,14 +49,12 @@
 		<div id="replyList">
 			<c:forEach var="reply" items="${replyDAO.selectListReply(param.idx) }">
 				<div class="replyItem" idx="${reply.idx }" >
-					<p>${reply.writer }</p>
+					<p>🧑🏻${reply.writer }</p>
 					<pre>${reply.content }</pre>
 				</div>
 			</c:forEach>
 		</div>
 	</div>
 </section>
-
-
 
 <%@ include file="footer.jsp" %>
