@@ -66,7 +66,7 @@
 	</div>
 </header>
 	
-	<div id="menu">
+	<div class="menu">
 		<ul id="menubar">
 				<li><a href="${cpath }">홈</a></li>
 				<li><a href="${cpath }/movieList.jsp">무비차트</a></li>
@@ -81,7 +81,20 @@
 			</li>
 			<li>
 				<a href="https://www.youtube.com/@CGVKOREA">
-				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAaVBMVEX/////AQH/AAD++vn7/Pv8BAL4AAD4oJ/2T075cnH1kI/8///5kpL3yMf5LSz5a2r44N/5xcT2r6/3goL3W1v3SEj4Q0L5Pz/3YmL5fX34pKT55+f67e330dD4u7v8Fxb3mZj6i4r2qalA1LslAAABI0lEQVRIie3V25KDIAwGYBoUj9WK4KEVq33/hyzbnd1ZSOoyveYf7/SbmAjIWExMTECqSyezui9alethGMdx0DpXU1vMfX3tbm9ZKeAoJ1HSUNl7hwHIKdf9w15UEnAKgVRJEQIFdovfD03xaI3zJLwuouQZwdWF966hisKK4MOFacWuKabwQDDzYMIZnxGFDMENQc7ZRXmtwoZgTUCesLPbKtQI7hS0RSt5/3MH9mCYbOkHkDEp3FfFkOqRmdEbK9Ejniq7tWj5EFNFC4CXYQvAX3KrCFxyxmuG3h5gEFyo53AWBD/eyPasCoATAUMOqxPexzbtm4H8lgMoKGc/ZZMeHchpgz/iT/jXP2Db+3ku2klp/X387/WWyc4QA42JiSHyBH2TD9qhcAqeAAAAAElFTkSuQmCC" style="width: 25px;"> 유튜브</a>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6E8tp5mEw6tkIXxE-16k4-cPi36b2f-AD2w&usqp=CAU" style="width: 25px;"> 유튜브</a>
 			</li>
 		</ul>
 	</div>
+	<script>
+		document.body.onscroll = function(event) {
+			const flag = window.scrollY > 213
+			console.log(window.scrollY)
+			if (flag) {
+				document.querySelector('.menu').style.backgroundImage = 'linear-gradient(to right, rgb(215, 67, 87), rgb(241,79,58) 59%, rgb(239, 100, 47))'
+				document.querySelector('.menu').style.color = 'white'
+			} else {
+				document.querySelector('.menu').style.background = 'inherit'
+				document.querySelector('.menu').style.color = 'inherit'
+			}
+		}
+	</script>

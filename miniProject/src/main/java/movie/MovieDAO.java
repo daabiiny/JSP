@@ -59,7 +59,7 @@ public class MovieDAO {
 	// select * from movie0;
 	public List<MovieDTO> selectListBestMovie() {
 		ArrayList<MovieDTO> list = new ArrayList<>();
-		String sql = "select * from movie0 fetch next 4 rows only ";
+		String sql = "select * from movie0 fetch next 5 rows only ";
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
