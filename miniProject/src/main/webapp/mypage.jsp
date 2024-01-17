@@ -8,6 +8,7 @@
 			<ul>
 				<li><a href="${cpath }/mypage.jsp">회원정보</a></li>			
 				<li><a href="${cpath }/myboard.jsp">내가 쓴 글</a></li>			
+				<li><a href="${cpath }/mylike.jsp">좋아요한 영화</a></li>			
 				<li><a href="${cpath }/deleteMember.jsp">회원탈퇴</a></li>
 			</ul>		
 		</div>

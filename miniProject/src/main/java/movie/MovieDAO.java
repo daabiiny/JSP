@@ -111,7 +111,27 @@ public class MovieDAO {
 			close();
 		}
 		return dto;
-		
+	}
+	// 내가 좋아요 한 영화목록 불러오기
+	public List<MovieDTO> selectListLikeMovie(String userid) {
+		ArrayList<MovieDTO> list = new ArrayList<>();
+		String sql = "select movie0.* from movie0, like0 where movie0.idx = like0.movie_idx and userid = ? order by idx"
+				+ " offset 0 rows "
+				+ " fetch next 10 rows only";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userid);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(mapping(rs));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return list;
 	}
 	
 }

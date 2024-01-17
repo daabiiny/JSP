@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="member.*, board.*, movie.*, reply.*" %>
+    pageEncoding="UTF-8" import="member.*, board.*, movie.*, reply.*, like.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="cpath" value="${pageContext.request.contextPath}"/>
@@ -7,6 +7,7 @@
 <c:set var="boardDAO" value="${BoardDAO.getInstance() }"/>
 <c:set var="movieDAO" value="${MovieDAO.getInstance()}"/>
 <c:set var="replyDAO" value="${ReplyDAO.getInstance() }"/>
+<c:set var="likeDAO" value="${LikeDAO.getInstance() }"/>
 <c:set var="fileUtil" value="${FileUtil.getInstance() }"/>
 
 <% request.setCharacterEncoding("UTF-8"); %>
@@ -81,7 +82,7 @@
 			</li>
 			<li>
 				<a href="https://www.youtube.com/@CGVKOREA">
-				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6E8tp5mEw6tkIXxE-16k4-cPi36b2f-AD2w&usqp=CAU" style="width: 25px;"> 유튜브</a>
+				<img src="image/유투브로고.png" style="width: 25px;"> 유튜브</a>
 			</li>
 		</ul>
 	</div>

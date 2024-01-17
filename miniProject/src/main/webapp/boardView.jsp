@@ -30,31 +30,42 @@
 </div>
 
 <section>
-	<div id="reply">
-		<div id="replyWrite">
-			<form method="POST" id="replyWriteForm">
-				<div>🧑🏻 ${login.userid }</div>
-				<textarea name="content" rows="5" cols="80" required></textarea>
-				<input type="hidden" name="board_idx" value="${dto.idx}">
-				<input type="hidden" name="writer" value="${login.userid }">
-				<input type="submit" name="등록">
-			</form>
-			<c:if test="${pageContext.request.method == 'POST' }">
-				<jsp:useBean id="reply" class="reply.ReplyDTO" />
-				<jsp:setProperty property="*" name="reply" />
-				<c:set var="row" value="${replyDAO.insertReply(reply) }" />
-				<c:redirect url="/boardView.jsp?idx=${dto.idx }"/>
-			</c:if>
-		</div>
-		<div id="replyList">
-			<c:forEach var="reply" items="${replyDAO.selectListReply(param.idx) }">
-				<div class="replyItem" idx="${reply.idx }" >
-					<p>🧑🏻${reply.writer }</p>
-					<pre>${reply.content }</pre>
-				</div>
-			</c:forEach>
-		</div>
-	</div>
+   <div id="reply">
+      <div id="replyWrite">
+         <form method="POST" id="replyWriteForm">
+            <c:if test="${empty login }">
+               <c:set var="replyComment">댓글을 작성하려면 로그인 해주세요.</c:set>
+            </c:if>
+            <c:if test="${not empty login }">
+               <c:set var="replyComment">게시글이 더 훈훈해지는 댓글 부탁드립니다.</c:set>
+            </c:if>
+            <div>🧑🏻 ${login.userid }</div>
+            <textarea name="content" rows="5" cols="80" placeholder="${replyComment }"
+               ${empty login ? 'disabled' : '' } required></textarea>
+            <input type="hidden" name="board_idx" value="${dto.idx}">
+            <input type="hidden" name="writer" value="${login.userid }">
+            <input type="submit" value="등록"
+               ${empty login ? 'disabled' : '' }>
+         </form>
+         <c:if test="${pageContext.request.method == 'POST' }">
+            <c:if test="${empty login }">
+               
+            </c:if>
+            <jsp:useBean id="reply" class="reply.ReplyDTO" />
+            <jsp:setProperty property="*" name="reply" />
+            <c:set var="row" value="${replyDAO.insertReply(reply) }" />
+            <c:redirect url="/boardView.jsp?idx=${dto.idx }"/>
+         </c:if>
+      </div>
+      <div id="replyList">
+         <c:forEach var="reply" items="${replyDAO.selectListReply(param.idx) }">
+            <div class="replyItem" idx="${reply.idx }" >
+               <p>🧑🏻${reply.writer }</p>
+               <pre>${reply.content }</pre>
+            </div>
+         </c:forEach>
+      </div>
+   </div>
 </section>
 
 <%@ include file="footer.jsp" %>

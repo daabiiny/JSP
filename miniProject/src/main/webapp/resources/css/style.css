@@ -254,7 +254,6 @@ div#mainVideobtn {
 	color: black;
 	background-color: #fff;
 	z-index: 2;
-	pointer-events: none;
 	
 }
 
@@ -272,7 +271,7 @@ div#movieList, div#movieList2 {
 }
 
 div#movieBox, div#movieBox2 {
-	width: 220px;
+	
 }
 
 .viewIdx {
@@ -322,12 +321,21 @@ div#date {
 	text-align: right;
 }
 
+input, textarea {
+  outline: none;
+}
+
 input#inputTitle {
+	border: 0;
+	background-color: #eee;
+	border-radius: 5px;
 	width: 600px;
-	height: 20px;
+	height: 40px;
 }
 
 textarea#inputText {
+	border: 1px solid #eee;
+	resize: none;
 	width: 600px;
 	height: 400px;
 }
@@ -453,24 +461,28 @@ textarea#inputText {
 	text-align: center;
 }
 
-table#myboardList {
+table#myboardList,
+table#myLikeList {
 	border-collapse: collapse;
 	width: 900px;
 	margin: 20px auto;
 }
 
-table#myboardList td {
+table#myboardList td,
+table#myLikeList td {
 	margin: 10px;
 	border-bottom: 1px dashed lightgrey;
 	text-align: center;
 }
 
-table#myboardList th {
+table#myboardList th,
+table#myLikeList th {
 	padding: 10px;
 	text-align: center;
 }
 
-table#myboardList>tr>td {
+table#myboardList>tr>td,
+table#myLikeList>tr>td {
 	width: 10px;
 }
 
@@ -488,6 +500,25 @@ table#myboardList>tr>td {
 #movieImg > a > img {
 	width: 300px;
 	height: 350px;
+}
+#myLikeList {
+	text-align: center;
+	padding: 20px 10px;
+}
+
+#movieLikeImg {
+	position: relative;
+}
+#movieLikeImg > a > img {
+	width: 175px;
+}
+
+strong#likeTitle {
+    display: block;
+    width: 175px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 #gongji {
@@ -588,15 +619,16 @@ table#myboardList>tr>td {
 }
 
 #scoreAndPerson {
-	margin-top: 20px;
-	display: flex;
+   margin-top: 20px;
+   display: flex;
+   justify-content: space-between;
+   width: 100%
 }
 
 #score {
 	display: flex;
 	justify-content: space-between;
 	margin: auto 0;
-	
 }
 
 #score>img, #person>img {
@@ -683,7 +715,11 @@ button {
 #viewPoster>img {
 	display: inline-block;
 }
+
 #writeBoardForm {
 	text-align: center;
-	
 }
+
+
+
+
