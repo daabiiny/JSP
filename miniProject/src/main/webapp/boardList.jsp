@@ -20,7 +20,7 @@
 <c:set var="paging" value="${Paging.newInstance(paramPage, boardCount) }" />
 <c:set var="list" value="${boardDAO.selectListBoard(param.search, paging) }" />
 
-<div class="wrap">
+<div class="wrapBoard">
 	<c:forEach var="dto" items="${list }">
 		<div id="oneBoard" class="flex">
 
