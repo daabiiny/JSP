@@ -18,7 +18,7 @@ a {
 }
 
 a:hover {
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 header, section {
@@ -254,7 +254,6 @@ div#mainVideobtn {
 	color: black;
 	background-color: #fff;
 	z-index: 2;
-	
 }
 
 div#movieList, div#movieList2 {
@@ -323,6 +322,7 @@ div#date {
 
 input, textarea {
   outline: none;
+  resize: none;
 }
 
 input#inputTitle {
@@ -338,6 +338,10 @@ textarea#inputText {
 	resize: none;
 	width: 600px;
 	height: 400px;
+}
+#writeBoardContent > textarea {
+	width: 980px;
+	resize: none;
 }
 
 .bold {

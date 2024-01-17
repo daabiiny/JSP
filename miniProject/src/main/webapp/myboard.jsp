@@ -5,8 +5,6 @@
 <section>
 	<table id="myboardList">
 		<div><h2>📌 ${login.userid }님이 쓴 글</h2></div>
-		<c:set var="list" value="${boardDAO.selectListByWriter(login.userid) }"/>
-		<c:forEach var="dto" items="${list }">
 		<thead>
 			<tr>
 				<th>번호</th>
@@ -17,6 +15,8 @@
 				<th>삭제여부</th>
 			</tr>
 		</thead>
+		<c:set var="list" value="${boardDAO.selectListByWriter(login.userid) }"/>
+		<c:forEach var="dto" items="${list }">
 			<tr>
 				<td>${dto.idx }</td>
 				<td>
