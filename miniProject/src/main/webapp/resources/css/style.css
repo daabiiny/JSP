@@ -209,10 +209,8 @@ div#gra {
 	width: 983px;
 	height: 100%;
 	position: absolute;
-	/*  		top: 250px; */
 	z-index: 1;
 	left: 24.2%;
-	/* 		transform: translate(-50%, -50%); */
 }
 
 div#mainVideoTitle {
@@ -294,16 +292,7 @@ div#boardInfo {
 	margin-left: 20px;
 }
 
-div#boardInfo>div {
-	/* 		margin-bottom: 5px; */
-	
-}
-
 div#boardContent {
-	/* 		display: block; */
-	/* 		white-space: nowrap; */
-	/* 		text-overflow: ellipsis; */
-	/* 		overflow: hidden; */
 	display: -webkit-box;
 	overflow: hidden;
 	-webkit-box-orient: vertical;
@@ -340,7 +329,6 @@ textarea#inputText {
 	height: 400px;
 }
 #writeBoardContent > textarea {
-	width: 980px;
 	resize: none;
 }
 
@@ -351,7 +339,6 @@ textarea#inputText {
 
 .boardTitle {
 	font-size: 25px;
-	/*       color: #FF7070; */
 }
 
 .flexSb {
@@ -505,6 +492,22 @@ table#myLikeList>tr>td {
 	width: 300px;
 	height: 350px;
 }
+
+#movieImg2 > a > img {
+	height: 300px;
+	transition-duration: 0.6s;
+}
+
+#movieImg2 {
+    background-size: 50%;
+    position: relative;
+	overflow: hidden;
+}
+#movieImg2:hover img {
+	transform: scale(1.1);
+	transition-duration: 0.5s;
+}
+
 #myLikeList {
 	text-align: center;
 	padding: 20px 10px;
@@ -602,12 +605,6 @@ strong#likeTitle {
 #trailer {
 	margin-top: 50px;
 }
-
-/* #trailerTitle { */
-/* 	font-weight: bold; */
-/* 	padding: 6px auto; */
-/* 	background-color: lightgrey; */
-/* } */
 
 #trailervideo {
 	background-color: #000;
@@ -722,6 +719,52 @@ button {
 
 #writeBoardForm {
 	text-align: center;
+}
+html {
+   scroll-behavior: smooth;
+}
+#btn_gotoTop {
+   transition-duration: 0.5s;
+   width: 47px;
+   height: 47px;
+   border: 1px solid black;
+   border-radius: 50%;
+   position: fixed;
+   right: 408px;
+   bottom: 70px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   box-shadow: 1px 3px 6px 0 rgba(0, 0, 0, 0.3);
+   z-index: -5;
+}
+#btn_gotoTop > img {
+   height: 21px;
+}
+.hidden {
+   opacity: 0;
+}
+#btn_gotoTop:hover {
+   cursor: pointer;
+}
+#btn_mypage {
+   transition-duration: 0.5s;
+   width: 136px;
+   height: 50px;
+   position: fixed;
+   right: 409px;
+   bottom: 70px;
+   font-weight: 500;
+   font-size: 16px;
+   color: white;
+   line-height: 1.500em;
+   background-image: linear-gradient(to left, rgb(255, 115, 86), rgb(251, 67, 87));
+   box-shadow: 1px 3px 6px 0 rgba(0, 0, 0, 0.3);
+   border-radius: 25px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   z-index: -5;
 }
 
 

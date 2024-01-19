@@ -16,10 +16,18 @@
 </section>
 
 <c:if test="${pageContext.request.method == 'POST' }">
-	<jsp:useBean id="dto" class="member.MemberDTO"/>
-	<jsp:setProperty property="*" name="dto"/>	
-	<c:set var="login" value="${memberDAO.login(dto) }" scope="session"/>
-	<c:redirect url="/"/>
+   <jsp:useBean id="dto" class="member.MemberDTO"/>
+   <jsp:setProperty property="*" name="dto"/>   
+   <c:set var="login" value="${memberDAO.login(dto) }" scope="session"/>
+   <c:if test="${empty login }">
+      <script>
+         alert('아이디 또는 비밀번호를 잘못 입력했습니다.\n입력하신 내용을 다시 확인해주세요.')
+         history.go(-1)
+      </script>
+   </c:if>
+   <c:if test="${not empty login }">
+      <c:redirect url="/"/>
+   </c:if>
 </c:if>
 
 <%@ include file="footer.jsp" %>

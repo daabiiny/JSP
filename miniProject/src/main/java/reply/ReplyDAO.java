@@ -52,7 +52,7 @@ public class ReplyDAO {
 	// 댓글목록 (selectListReply)
 	public List<ReplyDTO> selectListReply(int board_idx) {
 		ArrayList<ReplyDTO> list = new ArrayList<>();
-		String sql = "select * from reply0 where board_idx = ? order by idx";
+		String sql = "select * from reply0 where board_idx = ? order by idx desc";
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
